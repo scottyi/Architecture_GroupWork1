@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class IOFile {
 	
-	public static void readFile (){
+	public static void readFile (Cache C){
 		
 		//Declare le buffered reader utilise pour ouvrir et lire le fichier
 		BufferedReader buffRead = null;
@@ -27,9 +27,16 @@ public class IOFile {
 			while ((currentLine = buffRead.readLine()) != null) {
 				String temp[] = lineSplit(currentLine);
 				DataLRU newData = new DataLRU(temp[0], Integer.parseInt(temp[1]));
-				Main.lruCaching(newData);
+				if (C instanceof CacheLRU){
+					
+					CacheLRU lru = (CacheLRU) C;
+					lru.lruCaching(newData);
+					if (lru.getAccesses() != 0){
+						System.out.println("************************************************** HITRATE" + " " + lru.computeHitRateLRU());
+					}
+
+				}
 			}
-			System.out.println("THIS IS A TEST" + Main.numberOfHitsLRU / Main.numberOfAccesses);
 			
 		}
 		
