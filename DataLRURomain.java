@@ -24,5 +24,15 @@ public class DataLRU extends Data {
 	public void setCount(int count) {
 		this.recency = count;
 	}
+	
+	@Override
+	public boolean equals(Object other){
+	    if (other == null) return false;
+	    if (other == this) return true;
+	    if (!(other instanceof DataLRU))return false;
+	    DataLRU otherMyClass = (DataLRU)other;
+	    if (this.getUrl() == otherMyClass.getUrl()) return true;
+	    else return false;
+	}
 
 }

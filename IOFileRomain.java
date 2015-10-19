@@ -33,6 +33,7 @@ public class IOFile {
 					lru.lruCaching(newData);
 					if (lru.getAccesses() != 0){
 						System.out.println("************************************************** HITRATE" + " " + lru.computeHitRateLRU());
+						System.out.println("************************************************** HITBYTERATE" + " " + lru.computeHitByteRateLRU());
 					}
 
 				}

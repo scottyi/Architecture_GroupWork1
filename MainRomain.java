@@ -24,7 +24,7 @@ public class Main {
 		HashMap<String, DataLRU> mapLRU = new HashMap<String, DataLRU>(N);
 		
 		//Cree le cache LRU
-		CacheLRU task1LRU = new CacheLRU(cacheLRU, mapLRU, X, N);
+		CacheLRU task1LRU = new CacheLRU(cacheLRU, mapLRU, N, X);
 		
 		IOFile.readFile(task1LRU);
 		
